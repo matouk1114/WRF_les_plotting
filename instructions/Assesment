@@ -1,0 +1,67 @@
+Two week assessment period for New Hires
+
+The period from the 25th of July to the 5th of August will be used to asses if New 
+Hire has the requisite competencies to contribute to funded projects within the 
+Atmospheric Science and Climate Research program area of EVS. 
+
+
+The three areas of fundamental importance are:
+* The ability to write clear, concise well documented and self documented code.
+* The understanding of version control and practicing good use of version control systems. 
+* The ability to understand simple mathematical concepts and code these up appropriately. 
+
+To asses these competencies a simple task must be performed within the alloted
+time period. Performance will be assessed on submission of code, via a series of Pull
+Requests to a GitHub repository. 
+
+The task is to visualize simulation data produced by the Weather Research and
+Forecasting Large Eddy Simulation (WRF-LES) model. Data will be provided and the
+deliverable will be in the form of a .py file that can be run on the command
+line:
+
+plot_wrf.py /path/to/input_file.nc /path/to/output/ Variable Level vmim=vmin vmax=vmax
+
+Variable: the NetCDF variable to plot
+Level: level, in height, to plot 
+vmin, vmax: ranges of values to plot. Optional keyword arguments, defaults to
+range of values available
+
+Some assumptions to be made:
+The latitude and longitude of the cell at (0,0) are: 47.71 and -89.98
+The grid spacing in the horizontal is 100m
+The grid spacing in the vertical is 40m, and the origin is at 0m
+
+The python script will
+* Use xarray [1] to read in the data
+* Use cartopy and Matplotlib to plot the data using projection of choice 
+* Use Numpy to calculate the grid mean, minimum and maximum values of the variable
+* Use Numpy to calculate the mean of the variable as a function of height.
+* Write these values out to a text file
+* Save plot to a png file
+
+The repository to start from is here:
+https://github.com/EVS-ATMOS/WRF_les_plotting
+
+You will be required to use the git command line tool, no "web based" commits.
+Please use clear commit messages and submit your work as at least *two* pull requests:
+One for basic plotting and one for the grid statistics. As per the competencies
+we are looking for code must be: 
+* Well documented and self documenting. This includes good docstrings 
+ (look at any of the major code in Py-ART for good examples).
+* In-so-far as possible PeP-8 complaint [3]
+* Is developed using test driven design [4]. While we are not expecting 
+ Unit Tests, you should start with code that, as a minimum, produces an image and, 
+ incrementally improve it by testing it to breaking point. Please make use of exception 
+ handling.. see for example [5]
+
+You will be assessed on 
+* Completion of the task
+* Coding style and practice
+* Good commit messages and version control practice (see [6])
+
+[1] http://xarray.pydata.org/en/stable/
+[2] http://scitools.org.uk/cartopy/docs/latest/examples/waves.html
+[3] https://www.python.org/dev/peps/pep-0008/
+[4] https://en.wikipedia.org/wiki/Test-driven_development
+[5] http://www.tutorialspoint.com/python/python_exceptions.htm
+[6] http://chris.beams.io/posts/git-commit/
