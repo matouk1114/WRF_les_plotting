@@ -1,6 +1,6 @@
 Two week assessment period for New Hires
 
-The period from the 25th of July to the 5th of August will be used to asses if New 
+The period from the 25th of July to the 5th of August will be used to assess if New 
 Hire has the requisite competencies to contribute to funded projects within the 
 Atmospheric Science and Climate Research program area of EVS. 
 
@@ -10,7 +10,7 @@ The three areas of fundamental importance are:
 * The understanding of version control and practicing good use of version control systems. 
 * The ability to understand simple mathematical concepts and code these up appropriately. 
 
-To asses these competencies a simple task must be performed within the alloted
+To assess these competencies a simple task must be performed within the alloted
 time period. Performance will be assessed on submission of code, via a series of Pull
 Requests to a GitHub repository. 
 
@@ -32,8 +32,8 @@ The grid spacing in the horizontal is 100m
 The grid spacing in the vertical is 40m, and the origin is at 0m
 
 The python script will
-* Use xarray [1] to read in the data
-* Use cartopy and Matplotlib to plot the data using projection of choice 
+* Use xarray [1] or NetCDF4pytyhon to read in the data
+* Use Matplotlib with cartopy or basemap to plot the data using projection of choice 
 * Use Numpy to calculate the grid mean, minimum and maximum values of the variable
 * Use Numpy to calculate the mean of the variable as a function of height.
 * Write these values out to a text file
@@ -48,7 +48,7 @@ One for basic plotting and one for the grid statistics. As per the competencies
 we are looking for code must be: 
 * Well documented and self documenting. This includes good docstrings 
  (look at any of the major code in Py-ART for good examples).
-* In-so-far as possible PeP-8 complaint [3]
+* In-so-far as possible PEP8 complaint [3]
 * Is developed using test driven design [4]. While we are not expecting 
  Unit Tests, you should start with code that, as a minimum, produces an image and, 
  incrementally improve it by testing it to breaking point. Please make use of exception 
