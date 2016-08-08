@@ -1,0 +1,48 @@
+import pandas as pd
+import xarray as xr
+import pyart
+from matplotlib import pyplot as plt
+%matplotlib inline
+import urllib.request
+import numpy as np
+print(pyart.__version__)
+import seaborn as sns
+import xarray as xr
+import matplotlib.pyplot as plt
+
+
+
+data = xr.DataArray('DataData.py')
+ds = data.to_dataset(name = 'DataData.py')
+ds.to_netcdf
+radar = xr.open_dataset('DataData')
+radar
+
+
+
+variable = np.array(radar.variable)
+variable = variable.astype(np.float64)
+variable_max = np.amax(variable)
+variable_min = np.amin(variable)
+variable_mean = np.mean(variable)
+print('variable maximum = %f'%variable_max))
+print('variable minimum = %f'%(variable_min))
+print('variable mean = %f'%(variable_mean))
+
+
+
+z = np.array(radar.PH + radar.PHB)/9.81
+z = z.astype(np.float64)
+z
+
+
+def nanargmax(variable):
+    idx = np.argmax(variable, axis=None)
+    multi_idx = np.unravel_index(idx, variable.shape)
+    if np.isnan(variable[multi_idx]):
+        nan_count = np.sum(np.isnan(variable))
+        # In numpy < 1.8 use idx = np.argsort(a, axis=None)[-nan_count-1]
+        idx = np.argpartition(qloud, -nan_count-1, axis=None)[-nan_count-1]
+        multi_idx = np.unravel_index(idx, variable.shape)
+    return multi_idx
+nanargmax(variable)
