@@ -1,0 +1,43 @@
+
+import pandas as pd
+import xarray as xr
+import pyart
+from matplotlib import pyplot as plt
+%matplotlib inline
+import urllib.request
+import numpy as np
+print(pyart.__version__)
+import seaborn as sns
+import xarray as xr
+import matplotlib.pyplot as plt
+
+
+
+display = pyart.graph.RadarMapDisplay(radar)
+display.plot_ppi_map(
+    'reflectivity', vmin=-32, vmax=80, cmap='pyart_NWSRef',
+    resolution='i', embelish=False)
+display.basemap.drawcounties()
+display.plot_point(lon=-89.98, lat=47.71, symbol='ko'))
+display.plot_point(lon=-89.98, lat=47.71, symbol='ko', label_offset=(None, None))
+
+
+
+mean_99lvls = [variable[2,i, :, :].mean() for i in range(variable.shape[1])]
+print(mean_99lvls)
+plt.plot(mean_99lvls)
+np.argmax(mean_99lvls)
+plt.ylabel('South-North')
+plt.xlabel('West-East')
+
+
+
+plt.pcolormesh(u_xwind, cmap='RdBu')
+plt.xlim(0,47.71)
+plt.ylim(0,-89.98)
+fig.suptitle(Pcolormesh', fontsize=10, fontweight='bold')
+plt.ylabel('South-North')
+plt.xlabel('West-East')
+cbar = plt.colorbar()
+cbar.set_label('Colorbar', rotation=100)
+plt.show()
